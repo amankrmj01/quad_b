@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:quad_b/presentation/utils/consts/colors.dart';
 
 import 'infrastructure/navigation/navigation.dart';
 import 'infrastructure/navigation/routes.dart';
@@ -20,11 +21,12 @@ class Main extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: initialRoute,
       getPages: Nav.routes,
-      theme: ThemeData.light(useMaterial3: true).copyWith(
+      theme: ThemeData.dark(useMaterial3: true).copyWith(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-        appBarTheme: AppBarTheme(
-          backgroundColor: Color.lerp(Colors.red, Colors.white, 0.5),
-        ),
+        scaffoldBackgroundColor: color4,
+        // appBarTheme: AppBarTheme(
+        //   backgroundColor: Color.lerp(Colors.red, Colors.white, 0.5),
+        // ),
       ),
     );
   }

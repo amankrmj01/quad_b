@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:quad_b/presentation/utils/consts/colors.dart';
 import 'package:quad_b/presentation/utils/process_summary_text.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -48,7 +49,7 @@ class MovieTile extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 4),
       // padding: const EdgeInsets.all(0.1),
       decoration: BoxDecoration(
-        color: Color.lerp(Colors.yellow, Colors.white, 0.9),
+        color: Color.lerp(Colors.black, Colors.red, 0.01),
         border: Border.all(color: Colors.black),
         borderRadius: BorderRadius.circular(20),
       ),
@@ -75,15 +76,16 @@ class MovieTile extends StatelessWidget {
                     shaderCallback: (Rect bounds) {
                       return LinearGradient(
                         end: Alignment.centerRight,
-                        begin: Alignment.center,
+                        begin: Alignment.centerLeft,
                         colors: [
                           // Colors.transparent,
                           Colors.transparent,
+                          Colors.black.withOpacity(0.2),
                           Colors.black.withOpacity(0.4),
                           Colors.black.withOpacity(0.8),
                           Colors.black,
                         ],
-                        stops: const [0.0, 0.3, 0.75, 1.0],
+                        stops: const [0.0, 0.2, 0.4, 0.8, 1.0],
                       ).createShader(bounds);
                     },
                     blendMode: BlendMode.xor,
@@ -121,9 +123,10 @@ class MovieTile extends StatelessWidget {
                             child: Text(
                               show.name,
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
+                                color: Color.lerp(color2, Colors.black, 0.2),
                               ),
                             ),
                           ),
@@ -171,7 +174,8 @@ class MovieTile extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                           maxLines: 3,
                           softWrap: true,
-                          text: processSummary(show.summary, Colors.black, 16),
+                          text: processSummary(show.summary,
+                              Color.lerp(color2, Colors.white, 0.5)!, 16),
                         ),
                       );
                     }),

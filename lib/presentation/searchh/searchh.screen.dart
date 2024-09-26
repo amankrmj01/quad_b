@@ -41,26 +41,32 @@ class SearchhScreen extends GetView<SearchhController> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
-                  child: TextField(
-                    onTapOutside: (focusNode) {
-                      controller.focusNode.unfocus();
-                    },
-                    controller: controller.searchController,
-                    focusNode: controller.focusNode,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(28),
-                        borderSide: BorderSide.none,
-                      ),
-                      hintText: 'Search',
-                      fillColor: Colors.white,
-                      filled: true,
-                      suffixIcon: IconButton(
-                        splashColor: Colors.transparent,
-                        onPressed: () {
-                          controller.searchController.clear();
-                        },
-                        icon: const Icon(Icons.clear),
+                  child: SizedBox(
+                    height: 50,
+                    child: TextField(
+                      onTapOutside: (focusNode) {
+                        controller.focusNode.unfocus();
+                      },
+                      controller: controller.searchController,
+                      focusNode: controller.focusNode,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(28),
+                          borderSide: BorderSide(
+                            color: Colors.black,
+                            width: 2,
+                          ),
+                        ),
+                        hintText: 'Search',
+                        fillColor: Colors.white,
+                        filled: true,
+                        suffixIcon: IconButton(
+                          splashColor: Colors.transparent,
+                          onPressed: () {
+                            controller.searchController.clear();
+                          },
+                          icon: const Icon(Icons.clear),
+                        ),
                       ),
                     ),
                   ),
@@ -79,7 +85,7 @@ class SearchhScreen extends GetView<SearchhController> {
                   },
                   child: const Icon(
                     Icons.search,
-                    size: 40,
+                    size: 30,
                   ),
                 ),
               ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:quad_b/presentation/mainboard/controllers/mainboard.controller.dart';
+import 'package:quad_b/presentation/utils/consts/image/image.dart';
 import '../../infrastructure/dal/daos/models/movieListModel.dart' hide Image;
 import '../utils/movie_tile.dart';
 import 'controllers/home.controller.dart';
@@ -17,30 +18,37 @@ class HomeScreen extends GetView<HomeController> {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             children: [
-              InkWell(
-                  onTap: () {
-                    mainboardController.currentIndex.value = 1;
-                  },
-                  child: Container(
-                    height: 48,
-                    margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(28),
-                      border: Border.all(color: Colors.transparent),
-                    ),
-                    child: const Row(
-                      children: [
-                        Icon(Icons.search, color: Colors.grey),
-                        SizedBox(width: 10),
-                        Text(
-                          'Search...',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                  )),
+              Row(
+                children: [
+                  Image.asset(appLogo, height: 50),
+                  Expanded(
+                    child: InkWell(
+                        onTap: () {
+                          mainboardController.currentIndex.value = 1;
+                        },
+                        child: Container(
+                          height: 48,
+                          margin: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(28),
+                            border: Border.all(color: Colors.transparent),
+                          ),
+                          child: const Row(
+                            children: [
+                              Icon(Icons.search, color: Colors.grey),
+                              SizedBox(width: 10),
+                              Text(
+                                'Search...',
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                            ],
+                          ),
+                        )),
+                  ),
+                ],
+              ),
               Expanded(
                 child: StreamBuilder<List<MovieListModel>>(
                   stream: controller.dataStream,

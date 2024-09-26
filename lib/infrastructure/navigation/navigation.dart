@@ -51,5 +51,10 @@ class Nav {
       page: () => const UserScreen(),
       binding: UserControllerBinding(),
     ),
+    GetPage(
+      name: Routes.SPLASH,
+      page: () => const SplashScreen(),
+      binding: SplashControllerBinding(),
+    ),
   ];
 }
