@@ -13,7 +13,9 @@ class _RestClient implements RestClient {
     this._dio, {
     this.baseUrl,
     this.errorLogger,
-  });
+  }) {
+    baseUrl = 'https://api.tvmaze.com';
+  }
 
   final Dio _dio;
 
@@ -35,7 +37,7 @@ class _RestClient implements RestClient {
     )
         .compose(
           _dio.options,
-          'https://api.tvmaze.com/search/shows',
+          '/search/shows',
           queryParameters: queryParameters,
           data: _data,
         )

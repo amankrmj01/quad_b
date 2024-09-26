@@ -10,7 +10,7 @@ Dio getDio() {
   BaseOptions options = BaseOptions(
     receiveDataWhenStatusError: true,
     contentType: "application/json",
-    connectTimeout: const Duration(seconds: 3),
+    connectTimeout: const Duration(seconds: 8),
     receiveTimeout: const Duration(seconds: 3),
     sendTimeout: const Duration(seconds: 3),
   );

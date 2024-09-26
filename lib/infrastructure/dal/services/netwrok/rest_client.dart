@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
-
 import '../../daos/models/movieListModel.dart';
 
 part 'rest_client.g.dart';

@@ -16,7 +16,7 @@ String toJson(List<MovieListModel> data) => json.encode(
 
 class MovieListModel {
   final double score;
-  final Show show;
+  final ShowModel show;
 
   MovieListModel({
     required this.score,
@@ -25,7 +25,7 @@ class MovieListModel {
 
   factory MovieListModel.fromJson(Map<String, dynamic> json) => MovieListModel(
         score: json["score"]?.toDouble() ?? 0.0,
-        show: Show.fromJson(json["show"] ?? {}),
+        show: ShowModel.fromJson(json["show"] ?? {}),
       );
 
   Map<String, dynamic> toJson() => {
@@ -34,7 +34,7 @@ class MovieListModel {
       };
 }
 
-class Show {
+class ShowModel {
   final int id;
   final String url;
   final String name;
@@ -59,7 +59,7 @@ class Show {
   final int updated;
   final Links links;
 
-  Show({
+  ShowModel({
     required this.id,
     required this.url,
     required this.name,
@@ -85,7 +85,7 @@ class Show {
     required this.links,
   });
 
-  factory Show.fromJson(Map<String, dynamic> json) => Show(
+  factory ShowModel.fromJson(Map<String, dynamic> json) => ShowModel(
         id: json["id"] ?? 0,
         url: json["url"] ?? '',
         name: json["name"] ?? '',

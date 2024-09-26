@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:quad_b/infrastructure/dal/services/netwrok/injection.dart';
 
@@ -14,9 +12,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    restClient.movieListModel({'q': 'batman'}).then((value) {
-      debugPrint(value.toString());
-    });
+    fetchData();
   }
 
   @override
